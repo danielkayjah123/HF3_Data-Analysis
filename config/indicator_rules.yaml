@@ -1,0 +1,57 @@
+required_id_columns:
+  - periodname
+  - organisationunitname
+
+key_indicators:
+  normal_delivery: HF3_Normal Delivery
+  live_births: HF3_Live birth in facility
+  skilled_births: HF3_Delivery by Skilled birth attendant (Doctors, Midwives, SACHO, Nurses)
+  cho_cht_nurses_mch_deliveries: HF3_Delivery by CHO, CHT, Nurses, MCH Aides
+  breastfed_1hr: HF3_Breastfed within 1 hour of birth
+  baby_weighed_1hr: HF3_Baby weighed within 1 hour
+  anc_1st_facility: HF3_ANC 1st Contact(In Facility)
+  anc_1st_outreach: HF3_ANC 1st Contact(Outreach)
+  llin_anc_facility: HF3_ANC 1st Contact - LLIN given(In Facility)
+  hiv_screened_anc_facility: HF3_ANC 1st Contact - screened for HIV(In Facility)
+  hep_b_screened_anc_facility: HF3_ANC 1st Contact - screened for Hepatitis B(In Facility)
+  syphilis_screened_anc_facility: HF3_ANC 1st Contact - screened for syphilis(In Facility)
+  stillbirth_macerated: HF3_Still birth macerated in facility
+  stillbirth_fresh: HF3_Still birth fresh in facility
+  hiv_cases: HF3_HIV - Cases
+
+quality_rules:
+  - category: Delivery/Live birth
+    numerator: normal_delivery
+    denominator: live_births
+    issue: Normal deliveries exceed live births
+    follow_up: Verify delivery register and live birth register.
+  - category: ANC/LLIN
+    numerator: llin_anc_facility
+    denominator: anc_1st_facility
+    issue: LLIN given in facility exceeds ANC 1st contact in facility
+    follow_up: Verify ANC register and LLIN distribution record.
+  - category: ANC/HIV screening
+    numerator: hiv_screened_anc_facility
+    denominator: anc_1st_facility
+    issue: HIV screened in facility exceeds ANC 1st contact in facility
+    follow_up: Verify ANC HIV screening register.
+  - category: ANC/HepB screening
+    numerator: hep_b_screened_anc_facility
+    denominator: anc_1st_facility
+    issue: Hepatitis B screened in facility exceeds ANC 1st contact in facility
+    follow_up: Verify ANC Hepatitis B screening register.
+  - category: ANC/Syphilis screening
+    numerator: syphilis_screened_anc_facility
+    denominator: anc_1st_facility
+    issue: Syphilis screened in facility exceeds ANC 1st contact in facility
+    follow_up: Verify ANC syphilis screening register.
+  - category: Postnatal/Live birth
+    numerator: breastfed_1hr
+    denominator: live_births
+    issue: Breastfed within 1 hour exceeds live births
+    follow_up: Verify delivery register and immediate newborn care records.
+  - category: Postnatal/Live birth
+    numerator: baby_weighed_1hr
+    denominator: live_births
+    issue: Baby weighed within 1 hour exceeds live births
+    follow_up: Verify delivery register and newborn weighing records.
